@@ -1,6 +1,7 @@
 ﻿namespace JDunkerley.AlteryxAddIns.Framework
 {
     using System;
+    using System.CodeDom;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
@@ -236,5 +237,111 @@
 
             return null;
         }
+
+        /// <summary>
+        /// Given a System Type Get The Output Type
+        /// </summary>
+        /// <param name="propertyType">Type of the property.</param>
+        /// <returns></returns>
+        public static OutputType? GetOutputType(Type propertyType)
+        {
+            if (propertyType == typeof(bool) || propertyType == typeof(bool?))
+            {
+                return OutputType.Bool;
+            }
+            if (propertyType == typeof(byte) || propertyType == typeof(byte?))
+            {
+                return OutputType.Byte;
+            }
+            if (propertyType == typeof(short) || propertyType == typeof(short?))
+            {
+                return OutputType.Int16;
+            }
+            if (propertyType == typeof(int) || propertyType == typeof(int?))
+            {
+                return OutputType.Int32;
+            }
+            if (propertyType == typeof(long) || propertyType == typeof(long?))
+            {
+                return OutputType.Int64;
+            }
+            if (propertyType == typeof(float) || propertyType == typeof(float?))
+            {
+                return OutputType.Float;
+            }
+            if (propertyType == typeof(double) || propertyType == typeof(double?))
+            {
+                return OutputType.Double;
+            }
+            if (propertyType == typeof(DateTime) || propertyType == typeof(DateTime?))
+            {
+                return OutputType.DateTime;
+            }
+            if (propertyType == typeof(TimeSpan) || propertyType == typeof(TimeSpan?))
+            {
+                return OutputType.Time;
+            }
+            if (propertyType == typeof(string))
+            {
+                return OutputType.VWString;
+            }
+            return null;
+        }
+
+
+        public static bool SetValue(this Record record, FieldBase field, object val)
+        {
+            if (val == null)
+            {
+                field.SetNull(record);
+            }
+            else if (val is bool)
+            {
+                field.SetFromBool(record, (bool)val);
+            }
+            else if (val is byte)
+            {
+                field.SetFromInt32(record, (byte)val);
+            }
+            else if (val is short)
+            {
+                field.SetFromInt32(record, (short)val);
+            }
+            else if (val is int)
+            {
+                field.SetFromInt32(record, (int)val);
+            }
+            else if (val is long)
+            {
+                field.SetFromInt64(record, (long)val);
+            }
+            else if (val is float)
+            {
+                field.SetFromDouble(record, (float)val);
+            }
+            else if (val is double)
+            {
+                field.SetFromDouble(record, (double)val);
+            }
+            else if (val is DateTime)
+            {
+                field.SetFromString(record, ((DateTime)val).ToString("yyyy-MM-dd HH:mm:ss"));
+            }
+            else if (val is TimeSpan)
+            {
+                field.SetFromString(record, DateTime.Today.Add((TimeSpan)val).ToString("HH:mm:ss"));
+            }
+            else if (val is string)
+            {
+                field.SetFromString(record, (string)val);
+            }
+            else
+            {
+                return false;
+            }
+            return true;
+        }
+
+
     }
 }

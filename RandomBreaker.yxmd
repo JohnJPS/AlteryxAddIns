@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="2">
       <GuiSettings Plugin="JDunkerley.AlteryxAddins.RandomNumber">
-        <Position x="342" y="174" />
+        <Position x="246" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -26,7 +26,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="150" y="174" />
+        <Position x="54" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -50,7 +50,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.GenerateRows.GenerateRows">
-        <Position x="234" y="174" />
+        <Position x="138" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -73,11 +73,11 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="678" y="162" />
+        <Position x="582" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_22508_cd3c521b41e04da48ade023c083c694c_\Engine_26144_50566987fa1b425c967b454bad251e77_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_15568_a150c1d610f54f24a03a507f4059899d_\Engine_15576_859eaf4f672c4fb8b8de69683e5a6349_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -96,7 +96,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="JDunkerley.AlteryxAddins.CircuitBreaker">
-        <Position x="582" y="162" />
+        <Position x="486" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -110,7 +110,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="450" y="102" />
+        <Position x="354" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -119,13 +119,13 @@
             <Field>Random</Field>
             <Operator>&gt;</Operator>
             <Operands>
-              <Operand>5</Operand>
+              <Operand>4</Operand>
             </Operands>
           </Simple>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>[Random] &gt; 5</DefaultAnnotationText>
+          <DefaultAnnotationText>[Random] &gt; 4</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -133,34 +133,11 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="582" y="90" />
+        <Position x="486" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_22508_cd3c521b41e04da48ade023c083c694c_\Engine_26144_98e613a9e991426194c419ab8ada83d7_.yxdb</TempFile>
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="9">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="450" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_22508_cd3c521b41e04da48ade023c083c694c_\Engine_26144_08b8a6af44c0497b916c0d4495433f04_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_15568_a150c1d610f54f24a03a507f4059899d_\Engine_15576_5ca5dedbf592405ea6ad1d6f7f47ba89_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -190,10 +167,6 @@
     <Connection>
       <Origin ToolID="2" Connection="Output" />
       <Destination ToolID="7" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="9" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="3" Connection="Output" />

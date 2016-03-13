@@ -1,7 +1,11 @@
 ﻿namespace JDunkerley.AlteryxAddins
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.Linq;
+    using System.Reflection;
 
     using AlteryxRecordInfoNet;
 
@@ -14,6 +18,11 @@
     {
         public class Config
         {
+            public Config()
+            {
+                this.CultureObject = new Lazy<CultureInfo>(() => CultureTypeConverter.GetCulture(this.Culture));
+            }
+
             /// <summary>
             /// Gets or sets the type of the output.
             /// </summary>
@@ -39,13 +48,28 @@
             public string Culture { get; set; } = CultureTypeConverter.Current;
 
             /// <summary>
+            /// Gets the culture object.
+            /// </summary>
+            [System.Xml.Serialization.XmlIgnore]
+            [Browsable(false)]
+            public Lazy<CultureInfo> CultureObject { get; }
+
+            /// <summary>
             /// Gets or sets the name of the input field.
             /// </summary>
             [Category("Input")]
             [Description("The Field On Input Stream To Parse")]
             [TypeConverter(typeof(InputFieldTypeConverter))]
-            [InputPropertyName(nameof(DateTimeParser.Engine.Input), typeof(DateTimeParser.Engine), FieldType.E_FT_String, FieldType.E_FT_V_String, FieldType.E_FT_V_WString, FieldType.E_FT_WString)]
+            [InputPropertyName(nameof(Engine.Input), typeof(Engine), FieldType.E_FT_String, FieldType.E_FT_V_String, FieldType.E_FT_V_WString, FieldType.E_FT_WString)]
             public string InputFieldName { get; set; } = "ValueInput";
+
+            /// <summary>
+            /// Gets the Input Field Object
+            /// </summary>
+            [System.Xml.Serialization.XmlIgnore]
+            [Browsable(false)]
+            [InputPropertyName(nameof(Engine.Input), typeof(Engine), NameProperty = nameof(InputFieldName))]
+            public FieldBase InputField { get; set; }
 
             /// <summary>
             /// ToString used for annotation
@@ -54,93 +78,30 @@
             public override string ToString() => $"{this.InputFieldName} ⇒ {this.OutputFieldName}";
         }
 
-        public class Engine : BaseEngine<DateTimeParser.Config>
+        public class Output
         {
-            private FieldBase _inputFieldBase;
+             public double? Value { get; set; }
+        }
 
-            private RecordCopier _copier;
-
-            private RecordInfo _outputRecordInfo;
-
-            private FieldBase _outputFieldBase;
-
-            private CultureInfo _culture;
-
-            public Engine()
+        public class Engine : PassThroughEngine<Config, Output>
+        {
+            protected override Dictionary<PropertyInfo, FieldDescription> GetDescriptions(Config config)
             {
-                this.Input = new InputProperty(
-                    initFunc: this.InitFunc,
-                    progressAction: d => this.Output.UpdateProgress(d),
-                    pushFunc: this.PushFunc,
-                    closedAction: () => this.Output?.Close());
-            }
-
-            /// <summary>
-            /// Gets the input stream.
-            /// </summary>
-            [CharLabel('I')]
-            public InputProperty Input { get; }
-
-            /// <summary>
-            /// Gets or sets the output stream.
-            /// </summary>
-            [CharLabel('O')]
-            public PluginOutputConnectionHelper Output { get; set; }
-
-            private bool InitFunc(RecordInfo info)
-            {
-                var config = this.GetConfigObject();
-
                 var fieldDescription = config?.OutputType.OutputDescription(config.OutputFieldName, 19);
-                if (fieldDescription == null)
-                {
-                    return false;
-                }
-                fieldDescription.Source = nameof(DateTimeParser);
-                fieldDescription.Description = $"{config.InputFieldName} parsed as a number";
+                fieldDescription.Source = nameof(NumberParser);
+                fieldDescription.Description = $"{config?.InputFieldName} parsed as a number";
 
-
-                this._inputFieldBase = info.GetFieldByName(config.InputFieldName, false);
-                if (this._inputFieldBase == null)
-                {
-                    return false;
-                }
-
-                var newRecordInfo = Utilities.CreateRecordInfo(info, fieldDescription);
-
-                this._outputRecordInfo = newRecordInfo;
-                this._outputFieldBase = newRecordInfo.GetFieldByName(config.OutputFieldName, false);
-                this.Output?.Init(newRecordInfo, nameof(this.Output), null, this.XmlConfig);
-
-                // Create the Copier
-                this._copier = Utilities.CreateCopier(info, newRecordInfo, config.OutputFieldName);
-
-                this._culture = CultureTypeConverter.GetCulture(config.Culture);
-
-                return true;
+                var output = base.GetDescriptions(config);
+                output[output.Keys.First()] = fieldDescription;
+                return output;
             }
 
-            private bool PushFunc(RecordData r)
+            protected override Output CalcFunc(RecordData info, Config config)
             {
-                var record = this._outputRecordInfo.CreateRecord();
-                this._copier.Copy(record, r);
-
-                string input = this._inputFieldBase.GetAsString(r);
-
+                string input = config.InputField.GetAsString(info);
                 double value;
-                bool result = double.TryParse(input, NumberStyles.Any, this._culture, out value);
-
-                if (result)
-                {
-                    this._outputFieldBase.SetFromDouble(record, value);
-                }
-                else
-                {
-                    this._outputFieldBase.SetNull(record);
-                }
-
-                this.Output?.PushRecord(record.GetRecord());
-                return true;
+                bool result = double.TryParse(input, NumberStyles.Any, config.CultureObject.Value, out value);
+                return new Output { Value = result ? (double?)value : null };
             }
         }
     }

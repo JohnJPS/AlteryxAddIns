@@ -145,7 +145,7 @@
                                                  p * (config.Maximum - config.Minimum)
                                                  * (config.Average - config.Minimum))
                                            : config.Maximum
-                                             - Math.Sqrt(
+                                             - Math.Sqrt(   
                                                  (1 - p) * (config.Maximum - config.Minimum)
                                                  * (config.Maximum - config.Average));
                             };

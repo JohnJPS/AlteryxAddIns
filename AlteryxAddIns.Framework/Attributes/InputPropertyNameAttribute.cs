@@ -39,5 +39,10 @@
         /// Gets the field types list.
         /// </summary>
         public AlteryxRecordInfoNet.FieldType[] FieldTypes { get; }
+
+        /// <summary>
+        /// Gets or sets the name property for cross referencing.
+        /// </summary>
+        public string NameProperty { get; set; }
     }
 }

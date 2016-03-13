@@ -1,31 +1,195 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="10.0">
   <Nodes>
-    <Node ToolID="1">
-      <GuiSettings Plugin="JDunkerley.Alteryx.DateTimeInputTool">
-        <Position x="54" y="54" />
+    <Node ToolID="3">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeInput">
+        <Position x="30" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <ReturnDateTime>false</ReturnDateTime>
-          <OutputFieldName>DateInput</OutputFieldName>
+          <OutputType>DateTime</OutputType>
+          <OutputFieldName>Date</OutputFieldName>
+          <DateToReturn>Today</DateToReturn>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Date=Today</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeInput+Engine" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeInput">
+        <Position x="30" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputType>DateTime</OutputType>
+          <OutputFieldName>Date</OutputFieldName>
+          <DateToReturn>Now</DateToReturn>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Date=Now</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeInput+Engine" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeInput">
+        <Position x="30" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputType>DateTime</OutputType>
+          <OutputFieldName>Date</OutputFieldName>
+          <DateToReturn>Yesterday</DateToReturn>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Date=Yesterday</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeInput+Engine" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeInput">
+        <Position x="30" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputType>DateTime</OutputType>
+          <OutputFieldName>Date</OutputFieldName>
           <DateToReturn>StartOfWeek</DateToReturn>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>DateInput=StartOfWeek</DefaultAnnotationText>
+          <DefaultAnnotationText>Date=StartOfWeek</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="JDunkerley.Alteryx.PlugIn.dll" EngineDllEntryPoint=".Net:JDunkerley.Alteryx.DateTimeInputTool+Engine" />
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeInput+Engine" />
     </Node>
-    <Node ToolID="2">
+    <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="210" y="54" />
+        <Position x="126" y="42" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_12476_fbc43eb91c9848b2bd796bd84a58e9b3_\Engine_12476_f5eb85aa40ba408a976cb3a5c87f4e1e_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17908_2fcc76a445264404a86e34422a142275_\Engine_15576_34916033384f4d0199d68e12fd2e8b0e_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="126" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17908_2fcc76a445264404a86e34422a142275_\Engine_15576_82414849de774c2488ddcf3229e76c72_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="126" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17908_2fcc76a445264404a86e34422a142275_\Engine_15576_2ec0829930d749c6a1c6eca03f566387_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="126" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17908_2fcc76a445264404a86e34422a142275_\Engine_15576_5bd776b0ad9146738b7a97019d4d5979_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeInput">
+        <Position x="30" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputType>DateTime</OutputType>
+          <OutputFieldName>Date</OutputFieldName>
+          <DateToReturn>StartOfMonth</DateToReturn>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Date=StartOfMonth</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeInput+Engine" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="126" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17908_2fcc76a445264404a86e34422a142275_\Engine_15576_c39eeed0cdb247a68c268967ca073261_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -45,8 +209,24 @@
   </Nodes>
   <Connections>
     <Connection>
-      <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="2" Connection="Input" />
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

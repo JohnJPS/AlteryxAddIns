@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="10.0">
   <Nodes>
-    <Node ToolID="2">
+    <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
         <Position x="54" y="54" />
       </GuiSettings>
@@ -9,11 +9,11 @@
         <Configuration>
           <NumRows value="1" />
           <Fields>
-            <Field name="Input" />
+            <Field name="Field1" />
           </Fields>
           <Data>
             <r>
-              <c>abc</c>
+              <c>123,456.789</c>
             </r>
           </Data>
         </Configuration>
@@ -25,13 +25,32 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="3">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="306" y="54" />
+    <Node ToolID="2">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.NumberParser">
+        <Position x="174" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_1876_6e925a75b7fe4f6f8e2c13f4b942abea_\Engine_7260_17753618406240238cdf9c830c90d163_.yxdb</TempFile>
+          <OutputType>Double</OutputType>
+          <OutputFieldName>Value</OutputFieldName>
+          <Culture>Current</Culture>
+          <InputFieldName>Field1</InputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Field1 ⇒ Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.NumberParser+Engine" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="270" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17320_11b87e75c18f407087d7653360bb7fc0_\Engine_17320_fec8a3c00c664bc3a09a9ae924557143_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -48,32 +67,14 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="4">
-      <GuiSettings Plugin="JDunkerley.AlteryxAddins.HashCodeGenerator">
-        <Position x="174" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OutputFieldName>HashValue</OutputFieldName>
-          <InputFieldName>Input</InputFieldName>
-          <HashAlgorithm>MD5</HashAlgorithm>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Input=&gt;MD5(HashValue)</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.HashCodeGenerator+Engine" />
-    </Node>
   </Nodes>
   <Connections>
     <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="4" Connection="Input" />
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="4" Connection="Output" />
+      <Origin ToolID="2" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
     </Connection>
   </Connections>
@@ -95,7 +96,7 @@
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>HashingFunctions</Name>
+      <Name>Generic Test</Name>
       <Description />
       <RootToolName />
       <ToolVersion />

@@ -1,25 +1,6 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="10.0">
   <Nodes>
-    <Node ToolID="1">
-      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeParserTool">
-        <Position x="162" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OutputType>Date</OutputType>
-          <OutputFieldName>Date</OutputFieldName>
-          <Culture>French (France)</Culture>
-          <InputFieldName>FrenchDate</InputFieldName>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>FrenchDate=&gt;Date</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeParserTool+Engine" />
-    </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
         <Position x="54" y="54" />
@@ -58,11 +39,11 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="510" y="54" />
+        <Position x="642" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17740_89cb2aa114c24fc6bc3fefae319f83ac_\Engine_17740_e0c8131d915640c5b6f4c88c1a5daeb4_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_3024_db68641a57c24b0eaa660ff6ee54fde5_\Engine_15576_0075d54095894246880546355155fa30_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -79,62 +60,108 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="4">
-      <GuiSettings Plugin="JDunkerley.AlteryxAddins.FormatterTool">
+    <Node ToolID="6">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.DateTimeParser">
+        <Position x="162" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputType>Date</OutputType>
+          <OutputFieldName>Date</OutputFieldName>
+          <Culture>French (France)</Culture>
+          <InputFieldName>FrenchDate</InputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FrenchDate () ⇒ Date</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.DateTimeParser+Engine" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.StringFormatter">
         <Position x="282" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OutputFieldName>EnglishDate</OutputFieldName>
           <OutputFieldLength>64</OutputFieldLength>
-          <Culture>Current</Culture>
+          <Culture>English</Culture>
           <InputFieldName>Date</InputFieldName>
-          <OutputFormat>d MMMM yyyy</OutputFormat>
+          <FormatString>d MMMM yyyy</FormatString>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Date=&gt;EnglishDate</DefaultAnnotationText>
+          <DefaultAnnotationText>Date=&gt;EnglishDate [d MMMM yyyy]</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.FormatterTool+Engine" />
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.StringFormatter+Engine" />
     </Node>
-    <Node ToolID="5">
-      <GuiSettings Plugin="JDunkerley.AlteryxAddins.FormatterTool">
-        <Position x="390" y="54" />
+    <Node ToolID="8">
+      <GuiSettings Plugin="JDunkerley.AlteryxAddins.StringFormatter">
+        <Position x="414" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OutputFieldName>GermanDate</OutputFieldName>
           <OutputFieldLength>64</OutputFieldLength>
-          <Culture>German (Germany)</Culture>
+          <Culture>German</Culture>
           <InputFieldName>Date</InputFieldName>
-          <OutputFormat>d MMMM yyyy</OutputFormat>
+          <FormatString>d MMMM yyyy</FormatString>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Date=&gt;GermanDate</DefaultAnnotationText>
+          <DefaultAnnotationText>Date=&gt;GermanDate [d MMMM yyyy]</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.FormatterTool+Engine" />
+      <EngineSettings EngineDll="JDunkerley.AlteryxAddins.dll" EngineDllEntryPoint=".Net:JDunkerley.AlteryxAddins.StringFormatter+Engine" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Date" selected="True" />
+            <SelectField field="FrenchDate" selected="True" />
+            <SelectField field="EnglishDate" selected="True" />
+            <SelectField field="GermanDate" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
   </Nodes>
   <Connections>
     <Connection>
-      <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="4" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="1" Connection="Input" />
+      <Destination ToolID="6" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="4" Connection="Output" />
-      <Destination ToolID="5" Connection="Input" />
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="5" Connection="Output" />
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
     </Connection>
   </Connections>
